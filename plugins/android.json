@@ -1,0 +1,62 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "io.cordova.helloCordova"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "io.cordova.helloCordova"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "io.cordova.helloCordova"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "io.cordova.helloCordova"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "io.cordova.helloCordova"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "io.cordova.helloCordova"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "io.cordova.helloCordova"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "io.cordova.helloCordova"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "io.cordova.helloCordova"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "io.cordova.helloCordova"
+        },
+        "phonegap-plugin-push": {
+            "SENDER_ID": "210823600648",
+            "PACKAGE_NAME": "io.cordova.helloCordova"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "io.cordova.helloCordova"
+        },
+        "cordova-plugin-photokandy-video-thumbnail": {
+            "PACKAGE_NAME": "io.cordova.helloCordova"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "io.cordova.helloCordova"
+        },
+        "com-badrit-base64": {
+            "PACKAGE_NAME": "io.cordova.helloCordova"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "io.cordova.helloCordova"
+        }
+    }
+}

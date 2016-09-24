@@ -1,0 +1,61 @@
+<ion-view view-title="Events">
+
+  <ion-nav-buttons side="right">
+    <button class="button icon-left ion-android-home" ng-click="goToProfile()"></button>
+  </ion-nav-buttons>
+  <!--<ion-nav-back-button side="left">-->
+  <!--</ion-nav-back-button>-->
+
+  <ion-content class="has-header padding">
+    <!--<ion-nav-view name="Map" class="has-header">-->
+
+      <!--<div id="map" data-tap-disabled="true"></div>-->
+    <!--</ion-nav-view>-->
+    <ion-nav-view name="tab.events.map"></ion-nav-view>
+    <ion-nav-view name="tab.events">
+      <ion-list>
+        <div>
+        <ion-item style="height: 200px;" class="item item-avatar item-text-wrap"
+                  ng-repeat="event in events | orderObjectBy: 'start_time'" ui-sref="tab.events.map({lat: '{{event.latitude}}', long: '{{event.longitude}}'})">
+          <!--<ion-scroll scrollbar-x="false" scrollbar-y="false" >-->
+
+            <img ng-src="{{event.image.url}}">
+
+          <!-- header -->
+          <h2 class="timeline">
+            <span style="color:black">@{{event.venue_name}}</span>
+          </h2>
+          <p><span class="small">{{event.start_time | date:'MMM-dd-yyyy  h:mm a'}} </span></p>
+          <!-- body -->
+          <span>{{event.title}}</span>
+          <span class="small" id="description"> {{event.description}}</span>
+
+            <br>
+          <footer>
+
+            <span class="small"> {{event.venue_address}}</span>
+
+          </footer>
+
+          <!--</ion-scroll>-->
+        </ion-item>
+        </div>
+      </ion-list>
+    </ion-content>
+  </ion-nav-view>
+
+
+
+
+</ion-view>
+
+<!--<script>-->
+  <!--alert($('#description').text());-->
+<!--</script>-->
+
+
+
+
+
+
+

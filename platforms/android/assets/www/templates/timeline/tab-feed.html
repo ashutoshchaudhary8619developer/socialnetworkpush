@@ -1,0 +1,135 @@
+<ion-nav-bar></ion-nav-bar>
+<ion-view view-title="Feed">
+
+<ion-side-menus>
+
+  <ion-side-menu-content>
+
+    <ion-nav-bar >
+      <ion-nav-buttons side="left">
+        <!-- Toggle left side menu -->
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+      </ion-nav-buttons>
+
+      <ion-nav-buttons side="right">
+        <button class="button icon-left ion-ios-plus-empty" ng-click="newPost()"> Post</button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-nav-view name="Topic" animation="slide-left-right"></ion-nav-view>
+     main feed
+
+    <ion-content overflow-scroll="true" class="has-header" animation="slide-left-right">
+
+      <ion-refresher
+              pulling-text="Pull to refresh..."
+              on-refresh="doRefresh()">
+      </ion-refresher>
+          <header style="align-content: center">{{location}}</header>
+
+
+          <ion-list>
+
+            <ion-item class="item item-avatar item-text-wrap" ng-repeat="post in posts | filter: { value: { location: $scope.location }}| orderBy: '-value.timestamp_create' track by $index"">
+
+            <img ng-src="{{post.value.meta.thumbnail === '' && 'img/unknown.jpg' || post.value.meta.thumbnail}}">
+
+              <!-- header -->
+              <h2 class="timeline">
+                <span>@{{post.value.meta.username}}</span>
+                <span class="small">{{post.value.timestamp_create | date:'MMM-dd-yyyy  h:mm a'}} </span>
+                <span class="small">#{{post.value.meta.topic}}</span>
+              </h2>
+
+        <!-- body -->
+              <span>{{post.value.meta.text}}</span>
+			  
+			  
+			  
+			  <img class="wall_img" ng-src="{{post.value.meta.images[0]}}"></img> 
+		
+		
+		<!--
+		<video onclick="getElementById('my-video').load()" id="my-video" class="wall_img" ng-show="{{post.value.meta.videos != null}}" width="320" height="240" controls>
+  <source ng-src="{{post.value.meta.videos}}" type="video/mp4">
+ 
+  Your browser does not support the video tag.
+</video>
+-->
+
+
+
+
+<video onclick="getElementById(this.id).load()" class="wall_img" id="my-video{{$index + 1}}" class="video-js" controls preload="auto" width="90%" height="auto" 
+  poster="MY_VIDEO_POSTER.jpg" data-setup="{}" ng-show="{{post.value.meta.videos != null}}" >
+    <source src="{{post.value.meta.videos}}" type='video/mp4'>
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a web browser that
+      supports HTML5 video</a>
+    </p>
+  </video>
+
+
+<div ng-click="moreOptions(post.key, post.value.uid, post.value.meta.username,post.value.meta.likes)">
+
+            <br><br><hr style="border: .5px solid lightgray;">
+            <!--<hr>-->
+            <a class="button-icon icon ion-reply" style="color: lightgray;"><span class="small">  {{post.value.meta.dislikes}}</span></a>
+            <a class="button-icon icon ion-thumbsup" style="color: lightgray;"><span class="small">  {{post.value.meta.likes}}</span></a>
+            <!--<a class="button-icon icon ion-thumbsdown" style="color: lightgray;"><span class="small">  {{post.value.meta.dislikes}}</span></a>-->
+            <a class="button-icon icon ion-person-add" style="color: lightgray;"><span class="small">  {{post.value.meta.dislikes}}</span></a>
+            <a class="button-icon icon ion-email" style="color: lightgray;"><span class="small">  {{post.value.meta.dislikes}}</span></a>
+            <a class="button-icon icon ion-heart" style="color: lightgray;"><span class="small">  {{post.value.meta.dislikes}}</span></a>
+
+			</div>
+			
+			
+        <!-- opt images -->
+
+		
+		
+              <p ng-show="loadingPosts['image'][postObj.key] == false">
+                <post-images>
+				
+				
+				
+				
+				</post-images>
+              </p>
+
+            </ion-item>
+
+          </ion-list>
+		  
+
+      </ion-content>
+	  
+
+	  
+
+	  
+	  
+	  
+      </section>
+    </ion-nav-view>
+     /main-feed
+
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <header class="bar bar-header">
+      <h1 class="title">Topics</h1>
+    </header>
+
+    <ion-content scroll="true" class="has-header">
+      <ion-list>
+        <ion-item menu-close ng-repeat="topic in topics" ui-sref="tab.feed.Topic({topic:'{{topic.text}}'})">
+          {{topic.text}}
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+
+</ion-side-menus>
+
+</ion-view>
